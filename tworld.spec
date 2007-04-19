@@ -50,13 +50,14 @@ install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 rm -rf $RPM_BUILD_ROOT
 
 %post
-%banner %{name} -e << EOF
+%banner %{name} -e << 'EOF'
 
 WARNING!
  If You want to play original Chip's Challenge levelset.
  Save file chips.dat to /usr/share/tworld/data
 
 EOF
+#'
 
 %files
 %defattr(644,root,root,755)
