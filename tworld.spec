@@ -11,6 +11,8 @@ License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://www.muppetlabs.com/~breadbox/pub/software/tworld/%{name}-%{version}-CCLP2.tar.gz
 # Source0-md5:	100311f324b00a13649148448a20dc29
+Source1:	%{name}.desktop
+Source2:	%{name}.png
 URL:		http://www.muppetlabs.com/~breadbox/software/tworld/
 BuildRequires:	SDL-devel >= 1.2.0
 BuildRequires:	SDL_image-devel >= 1.2.0
@@ -35,12 +37,14 @@ Tile World jest emulacją silnika gry "Chip's Challenge".
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/{res,data,sets}} $RPM_BUILD_ROOT%{_desktopdir}
+install -d $RPM_BUILD_ROOT{%{_bindir},%{_datadir}/%{name},%{_datadir}/%{name}/{res,data,sets},%{_desktopdir},%{_pixmapsdir}}
 
 install tworld $RPM_BUILD_ROOT%{_bindir}/tworld
 install res/*  $RPM_BUILD_ROOT%{_datadir}/%{name}/res
 install data/*  $RPM_BUILD_ROOT%{_datadir}/%{name}/data
 install sets/*  $RPM_BUILD_ROOT%{_datadir}/%{name}/sets
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+install %{SOURCE2} $RPM_BUILD_ROOT%{_pixmapsdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -59,5 +63,5 @@ EOF
 %doc Changelog README
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
-#%{_pixmapsdir}/tworld.png
-#%{_desktopdir}/*.desktop
+%{_pixmapsdir}/%{name}.png
+%{_desktopdir}/%{name}.desktop
