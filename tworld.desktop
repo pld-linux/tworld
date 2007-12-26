@@ -2,9 +2,8 @@
 Name=Tile World
 Comment=Emulator of the game Chip's Challange
 Comment[pl]=Emulator gry Chip's Challange
-Icon=tworld.png
+Icon=tworld
 Exec=tworld
 Terminal=false
 Type=Application
 Categories=Game;StrategyGame;
-Encoding=UTF-8
